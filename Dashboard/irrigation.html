@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <link rel="icon" type="image/png" href="dist/img/plantt.png">
+  <title>Irrigation</title>
+  <!-- Tell the browser to be responsive to screen width -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="plugins/fontawesome-free/css/all.min.css">
+  <!-- Ionicons -->
+  <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+  <!-- Tempusdominus Bbootstrap 4 -->
+  <link rel="stylesheet" href="plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css">
+  <!-- iCheck -->
+  <link rel="stylesheet" href="plugins/icheck-bootstrap/icheck-bootstrap.min.css">
+  <!-- JQVMap -->
+  <link rel="stylesheet" href="plugins/jqvmap/jqvmap.min.css">
+  <!-- Theme style -->
+  <link rel="stylesheet" href="dist/css/adminlte.min.css">
+  <!-- overlayScrollbars -->
+  <link rel="stylesheet" href="plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
+  <!-- Daterange picker -->
+  <link rel="stylesheet" href="plugins/daterangepicker/daterangepicker.css">
+  <!-- summernote -->
+  <link rel="stylesheet" href="plugins/summernote/summernote-bs4.css">
+  <!-- Google Font: Source Sans Pro -->
+  <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+
+
+  <script src="https://www.gstatic.com/firebasejs/7.9.3/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.9.3/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.9.3/firebase-database.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.9.3/firebase-storage.js"></script>
+
+</head>
+<body class="hold-transition sidebar-mini layout-fixed">
+<div class="wrapper">
+
+
+  </nav>
+  <!-- /.navbar -->
+
+  <!-- Main Sidebar Container -->
+  <aside class="main-sidebar sidebar-dark-primary elevation-4" style="background-color:black"  >
+    <!-- Brand Logo -->
+    <a href="index3.html" class="brand-link" style="text-decoration-color: #0b0b0b">
+      <img src="dist/img/plantt.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
+      >
+      <span><p style="color:white">Agro World</p></span>
+    </a>
+
+    <!-- Sidebar Menu -->
+    <nav class="mt-2" style="background-color: #121416">
+      <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+        <!-- Add icons to the links using the .nav-icon class
+             with font-awesome or any other icon font library -->
+        <li class="nav-item has-treeview menu-open">
+          <a href="index.html" class="nav-link ">
+
+            <p >
+              <i class="nav-icon fas fa-tachometer-alt"></i>
+              Dashboard
+
+            </p>
+          </a>
+
+        </li>
+
+        <li class="nav-item has-treeview">
+          <a href="temperature.html" class="nav-link ">
+            <i class="nav-icon fas fa-temperature-low" style="color: white"></i>
+            <p style="color: white">Temperature</p>
+
+          </a>
+
+        </li>
+
+        <li class="nav-item has-treeview">
+          <a href="humidity.html" class="nav-link">
+            <i class="nav-icon fas fa-tint" style="color: white"></i>
+            <p style="color: white">Humidity</p>
+
+          </a>
+
+        </li>
+
+        <li class="nav-item has-treeview">
+          <a href="soil_moisture.html" class="nav-link">
+            <i class="nav-icon fas fa-burn" style="color: white"></i>
+            <p style="color: white">Soil Moisture</p>
+
+          </a>
+
+        </li>
+
+        <li class="nav-item has-treeview">
+          <a href="motion_detection.html" class="nav-link">
+            <i class="nav-icon fas fa-exclamation-triangle" style="color: white"></i>
+            <p style="color: white">Motion Detection</p>
+
+          </a>
+
+        </li>
+
+        <li class="nav-item has-treeview">
+          <a href="irrigation.html" class="nav-link active" style="background-color: #1aa67d">
+            <i class="nav-icon fas fa-shower" style="color: white"></i>
+            <p style="color: white">Irrigation</p>
+
+          </a>
+
+        </li>
+
+        <li class="nav-header" style="font-size: 18px">USER GUIDE</li>
+        <li class="nav-item has-treeview">
+          <a href="instructions.html" class="nav-link ">
+            <i class="nav-icon fas fa-newspaper" style="color: white"></i>
+            <p style="color: white">Instructions</p>
+
+          </a>
+
+        </li>
+
+
+      </ul>
+    </nav>
+    <!-- /.sidebar-menu -->
+
+    <!-- /.sidebar -->
+  </aside>
+
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <div class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1 class="m-0 text-dark">Water Pump</h1>
+          </div>
+
+          <div class="col-sm-6">
+            <ol class="breadcrumb float-sm-right">
+              <li class="breadcrumb-item"><a href="/index.html">Home</a></li>
+
+            </ol>
+            <ol class="breadcrumb float-sm-right" style="padding-right: 10px;">
+              <li class="breadcrumb-item"><a href="/signin.html" id="logout">Irrigation</a></li>
+
+            </ol>
+
+          </div>
+
+          <div class="card" style="margin-top: 40px">
+            <div class="card-header">
+              <div>
+                <button id="water_pump" type="button" class="button" style="background-color: mediumseagreen; color:#fff; border-bottom: none; width: 300px; height: 40px; border-radius: 5px;  cursor: pointer;" onclick="myFunction()" value="On">Pump ON/OFF</button>
+
+              </div>
+
+
+
+              <div class="card-tools" style="width: 1050px">
+
+              </div>
+            </div>
+            <div class="card-body">
+              <ul>
+
+                <li> You can control your water pump by clicking <b>Pump ON/OFF</b> Button. </li>
+                <li>If motor is in on status , and if you need to off it manually, click above button.</li>
+                <li>If motor is in off status , and if you need to on it manually, click above button.</li>
+              </ul>
+
+              <div>
+                <img src=dist/img/watering.jpg/>
+              </div>
+            </div>
+            <!-- /.card-body -->
+
+            <!-- /.card-footer-->
+          </div>
+
+
+          <div class="col-md-6">
+
+
+            <!-- Bootstrap Switch -->
+
+            <!-- /.card -->
+            <!-- /.col -->
+          </div><!-- /.row -->
+        </div><!-- /.container-fluid -->
+      </div>
+      <!-- /.content-header -->
+
+      <!-- Main content -->
+
+      <!-- /.content -->
+    </div>
+    <!-- /.content-wrapper -->
+
+
+    <!-- Control Sidebar -->
+    <aside class="control-sidebar control-sidebar-dark">
+      <!-- Control sidebar content goes here -->
+    </aside>
+    <!-- /.control-sidebar -->
+  </div>
+
+  <footer class="main-footer" style="text-align: center">
+    <strong>Copyright &copy; 2020 <a href="#" style="color: #00cd5a">Dilshani Senarathna</a>.</strong>
+    All rights reserved.
+
+  </footer>
+  <!-- ./wrapper -->
+
+  <!-- jQuery -->
+  <script src="plugins/jquery/jquery.min.js"></script>
+  <!-- jQuery UI 1.11.4 -->
+  <script src="plugins/jquery-ui/jquery-ui.min.js"></script>
+  <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
+  <script>
+    $.widget.bridge('uibutton', $.ui.button)
+  </script>
+  <!-- Bootstrap 4 -->
+  <script src="plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <!-- ChartJS -->
+  <script src="plugins/chart.js/Chart.min.js"></script>
+  <!-- Sparkline -->
+  <script src="plugins/sparklines/sparkline.js"></script>
+  <!-- JQVMap -->
+  <script src="plugins/jqvmap/jquery.vmap.min.js"></script>
+  <script src="plugins/jqvmap/maps/jquery.vmap.usa.js"></script>
+  <!-- jQuery Knob Chart -->
+  <script src="plugins/jquery-knob/jquery.knob.min.js"></script>
+  <!-- daterangepicker -->
+  <script src="plugins/moment/moment.min.js"></script>
+  <script src="plugins/daterangepicker/daterangepicker.js"></script>
+  <!-- Tempusdominus Bootstrap 4 -->
+  <script src="plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js"></script>
+  <!-- Summernote -->
+  <script src="plugins/summernote/summernote-bs4.min.js"></script>
+  <!-- overlayScrollbars -->
+  <script src="plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
+  <!-- AdminLTE App -->
+  <script src="dist/js/adminlte.js"></script>
+  <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
+  <script src="dist/js/pages/dashboard.js"></script>
+  <!-- AdminLTE for demo purposes -->
+  <script src="dist/js/demo.js"></script>
+
+  <script src="../../plugins/bootstrap-switch/js/bootstrap-switch.min.js"></script>
+
+  <script src="dashboard.js"></script>
+  <script src="/js/index.js"></script>
+  <script>
+    $(function () {
+      $("input[data-bootstrap-switch]").each(function(){
+        $(this).bootstrapSwitch('state', $(this).prop('checked'));
+
+      });
+    })
+  </script>
+</div>
+</body>
+</html>

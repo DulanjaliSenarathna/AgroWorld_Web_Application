@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="apple-touch-icon" sizes="76x76" href="main/images/plantt.png">
+    <link rel="icon" type="image/png" href="main/images/plantt.png">
+    <title>Agro World Register</title>
+
+    <!-- Font Icon -->
+    <link rel="stylesheet" href="main/fonts/material-icon/css/material-design-iconic-font.min.css">
+
+    <!-- Main css -->
+    <link rel="stylesheet" href="main/css/loginstyle.css">
+
+    <script src="https://www.gstatic.com/firebasejs/7.9.3/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.9.3/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.9.3/firebase-database.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.9.3/firebase-storage.js"></script>
+</head>
+<body>
+
+    <div class="main">
+
+        <!-- Sign up form -->
+        <section class="signup">
+            <div class="container">
+                <div class="signup-content">
+                    <div class="signup-form">
+                        <h2 class="form-title">REGISTER</h2>
+                        <form action="">
+                            
+                            <div class="form-group">
+                                <label for="email"><i class="zmdi zmdi-email"></i></label>
+                                <input type="email" name="email" id="your_email" placeholder="Your Email"/>
+                            </div>
+                            <div class="form-group">
+                                <label for="pass"><i class="zmdi zmdi-lock"></i></label>
+                                <input type="password" name="pass" id="your_pass" placeholder="Password"/>
+                            </div>
+                            <div class="form-group">
+                                <label for="re-pass"><i class="zmdi zmdi-lock-outline"></i></label>
+                                <input type="password" name="re_pass" id="re_pass" placeholder="Repeat your password"/>
+                            </div>
+                        
+                            <div>
+                                <button id="signup" type="button" class="button" style="background-color: mediumseagreen; color:#fff; border-bottom: none; width: 300px; height: 40px; border-radius: 5px;  cursor: pointer; margin-top: 60px;">Register</button>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="signup-image">
+                        <figure><img src="main/images/3384455.jpg" alt="sing up image"></figure>
+                        <a href="signin.html" class="signup-image-link" style="text-decoration: none ;">Already have an account? Login here</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+        <script src="main/vendor/jquery/jquery.min.js"></script>
+        <script src="js/main.js"></script>
+        <script src="js/index.js"></script>
+    <script>
+        firebase.auth().onAuthStateChanged(function(user)
+        {
+            if(user)
+            {
+                var userID = firebase.auth().currentUser.uid;
+
+                firebase.database().ref('users/'+userID).once('value').then(function(snapshot)
+                {
+                    if(snapshot.val())
+                    {
+                        window.location.href="Dashboard/index.html";
+                    }
+                    else
+                    {
+                        window.location.href="accoutSettings.html";
+                    }
+                });
+
+                
+            }
+        }
+        );
+    </script>
+   
+    </body>
+    </html> 

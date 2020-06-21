@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <link rel="icon" type="image/png" href="dist/img/plantt.png">
+  <title>SoilMoisture</title>
+
+  <!-- Tell the browser to be responsive to screen width -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="../../plugins/fontawesome-free/css/all.min.css">
+  <!-- Ionicons -->
+  <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+  <!-- Theme style -->
+  <link rel="stylesheet" href="../../dist/css/adminlte.min.css">
+  <!-- Google Font: Source Sans Pro -->
+  <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+</head>
+<body class="hold-transition sidebar-mini">
+<div class="wrapper">
+  <!-- Navbar -->
+
+  <!-- /.navbar -->
+
+  <!-- Main Sidebar Container -->
+  <aside class="main-sidebar sidebar-dark-primary elevation-4" style="background-color:  #121416">
+    <!-- Brand Logo -->
+    <a href="../../index3.html" class="brand-link">
+      <img src="dist/img/plantt.png"
+           alt="AdminLTE Logo"
+           class="brand-image img-circle elevation-3">
+      <span class="brand-text font-weight-light" style="color: white;">Agro World</span>
+    </a>
+
+
+    <!-- Sidebar -->
+    <nav class="mt-2" style="background-color: #121416">
+      <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+        <!-- Add icons to the links using the .nav-icon class
+             with font-awesome or any other icon font library -->
+        <li class="nav-item has-treeview menu-open">
+          <a href="index.html" class="nav-link ">
+
+            <p >
+              <i class="nav-icon fas fa-tachometer-alt"></i>
+              Dashboard
+
+            </p>
+          </a>
+
+        </li>
+
+        <li class="nav-item has-treeview">
+          <a href="temperature.html" class="nav-link ">
+            <i class="nav-icon fas fa-temperature-low" style="color: white"></i>
+            <p style="color: white">Temperature</p>
+
+          </a>
+
+        </li>
+
+        <li class="nav-item has-treeview">
+          <a href="humidity.html" class="nav-link">
+            <i class="nav-icon fas fa-tint" style="color: white"></i>
+            <p style="color: white">Humidity</p>
+
+          </a>
+
+        </li>
+
+        <li class="nav-item has-treeview">
+          <a href="soil_moisture.html" class="nav-link active" style="background-color: #1aa67d">
+            <i class="nav-icon fas fa-burn" style="color: white"></i>
+            <p style="color: white">Soil Moisture</p>
+
+          </a>
+
+        </li>
+
+        <li class="nav-item has-treeview">
+          <a href="motion_detection.html" class="nav-link">
+            <i class="nav-icon fas fa-exclamation-triangle" style="color: white"></i>
+            <p style="color: white">Motion Detection</p>
+
+          </a>
+
+        </li>
+
+        <li class="nav-item has-treeview">
+          <a href="irrigation.html" class="nav-link">
+            <i class="nav-icon fas fa-shower" style="color: white"></i>
+            <p style="color: white">Irrigation</p>
+
+          </a>
+
+        </li>
+
+        <li class="nav-header" style="font-size: 18px">USER GUIDE</li>
+        <li class="nav-item has-treeview">
+          <a href="irrigation.html" class="nav-link">
+            <i class="nav-icon fas fa-newspaper" style="color: white"></i>
+            <p style="color: white">Instructions</p>
+
+          </a>
+
+        </li>
+
+
+
+
+      </ul>
+    </nav>
+    <!-- /.sidebar -->
+  </aside>
+
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1>Soil Moisture</h1>
+          </div>
+          <div class="col-sm-6">
+            <ol class="breadcrumb float-sm-right">
+              <li class="breadcrumb-item"><a href="#">Home</a></li>
+              <li class="breadcrumb-item active">SoilMoisture</li>
+            </ol>
+          </div>
+        </div>
+      </div><!-- /.container-fluid -->
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+
+
+          <!-- /.col (LEFT) -->
+
+            <!-- LINE CHART -->
+            <div class="card card-info" style="height: 500px">
+              <div class="card-header">
+                <h3 class="card-title">Soil Moisture</h3>
+
+                <div class="card-tools">
+                  <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-minus"></i>
+                  </button>
+                  <button type="button" class="btn btn-tool" data-card-widget="remove"><i class="fas fa-times"></i></button>
+                </div>
+              </div>
+              <div class="card-body">
+                <div class="chart">
+                  <canvas id="lineChart" style="min-height: 250px; height: 400px; max-height: 450px; max-width: 100%; "></canvas>
+                </div>
+              </div>
+
+            </div>
+
+    </section>
+    <!-- /.content -->
+  </div>
+
+  <!-- /.content-wrapper -->
+  <footer class="main-footer">
+
+    <strong style="margin-left: 290px">Copyright &copy; 2020 <a href="#">Dilshani Senarathna</a>.</strong> All rights
+    reserved.
+  </footer>
+
+
+  <!-- /.control-sidebar -->
+
+<!-- ./wrapper -->
+
+<!-- jQuery -->
+<script src="../../plugins/jquery/jquery.min.js"></script>
+<!-- Bootstrap 4 -->
+<script src="../../plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+<!-- ChartJS -->
+<script src="../../plugins/chart.js/Chart.min.js"></script>
+<!-- AdminLTE App -->
+<script src="../../dist/js/adminlte.min.js"></script>
+<!-- AdminLTE for demo purposes -->
+<script src="../../dist/js/demo.js"></script>
+<!-- page script -->
+<script>
+  $(function () {
+
+    var labels = [];
+
+    var areaChartData = {
+      labels  : labels,
+      datasets: [
+        {
+          label               : 'Soil Moisture',
+          backgroundColor     : 'rgba(60,141,188,0.9)',
+          borderColor         : 'rgba(60,141,188,0.8)',
+          pointRadius          : false,
+          pointColor          : '#3b8bba',
+          pointStrokeColor    : 'rgba(60,141,188,1)',
+          pointHighlightStroke: 'rgba(60,141,188,1)',
+          data                : []
+        }
+      ]
+    }
+
+    var areaChartOptions = {
+      maintainAspectRatio : false,
+      responsive : true,
+      legend: {
+        display: true
+      },
+      scales: {
+        xAxes: [{
+          gridLines : {
+            display : true,
+          }
+        }],
+        yAxes: [{
+          gridLines : {
+            display : true,
+          }
+        }]
+      }
+    }
+
+
+    //-------------
+    //- LINE CHART -
+    //--------------
+    var lineChartCanvas = $('#lineChart').get(0).getContext('2d')
+    var lineChartOptions = jQuery.extend(true, {}, areaChartOptions)
+    var lineChartData = jQuery.extend(true, {}, areaChartData)
+    lineChartData.datasets[0].fill = false;
+    lineChartOptions.datasetFill = false
+
+    var lineChart = new Chart(lineChartCanvas, {
+      type: 'line',
+      data: lineChartData,
+      options: lineChartOptions
+    })
+
+    var xhr = new XMLHttpRequest();
+    var url = "https://io.adafruit.com/api/v2/dulanjali/feeds/soil-moisture/data/chart?hours=144&resolution=30";
+    xhr.open("GET", url, true);
+    xhr.setRequestHeader("Content-Type", "application/json");
+    xhr.setRequestHeader("X-AIO-Key", "aio_btJp99cUWnF74pM7IoFix0oqNYiA");
+    xhr.onreadystatechange = function () {
+      if (xhr.readyState === 4 && xhr.status === 200) {
+        var json = JSON.parse(xhr.responseText);
+        if (json && json.data) {
+
+          var soilData = json.data.map(d => d[1]);
+          labels = json.data.map(d => {
+            var s = d[0]
+            s = s.replace(":00Z", "");
+            s = s.replace("T", " | ");
+            return s;
+          });
+
+          lineChart.data.labels = labels;
+          lineChart.data.datasets[0].data = soilData;
+          lineChart.update();
+        }
+      } else {
+
+      }
+    };
+    xhr.send();
+
+
+  })
+</script>
+</div>
+</body>
+</html>
